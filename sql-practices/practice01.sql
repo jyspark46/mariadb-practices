@@ -34,7 +34,7 @@ where to_date = '9999-01-01';
 
 -- 문제5.
 -- 부서는 총 몇 개가 있나요?
-select count(dept_name) as '부서의 총 개수'
+select count(*) as '부서의 총 개수'
 from departments;
 
 -- 문제6.
