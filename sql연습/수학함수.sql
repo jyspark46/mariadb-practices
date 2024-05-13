@@ -31,8 +31,8 @@ from dual;
 select sign(20), sign(-100), sign(0)
 from dual;
 
--- greatest(x, y, ...): 파라미터 중 최댓값
--- least(x, y, ...): 파라미터 중 최솟값
+-- greatest(x, y, ...): 여러 파라미터 중 최댓값
+-- least(x, y, ...): 여러 파라미터 중 최솟값
 select greatest(10, 40, 50, 20), least(10, 40, 20, 50)
 from dual;
 select greatest('b', 'A', 'C', 'D'), least('hello', 'hela', 'hell')

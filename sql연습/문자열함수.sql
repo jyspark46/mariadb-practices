@@ -29,7 +29,7 @@ from dual;
 select lpad(salary, 10, '*')
 from salaries;
 
--- trim, ltrim, rtrim, trim(leading/trailing/both)
+-- trim, ltrim, rtrim, trim(leading / trailing / both)
 select concat("---", ltrim('   hello   '), "---"),
 	   concat("---", rtrim('   hello   '), "---"),
        concat("---", trim(leading 'x' from 'xxxhelloxxx'), "---"),

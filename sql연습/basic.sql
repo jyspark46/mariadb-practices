@@ -42,3 +42,57 @@ delete from pet where name = '백꾸';
 -- load data: mysql(CLI) 전용
 load data local infile '/root/pet.txt' into table pet;
 
+-- select 연습
+select name, species
+from pet
+where name = 'bowser';
+
+select name, species, birth
+from pet
+where birth > '1997-12-31';
+# where birth >= '1998-01-01';
+
+select name, species, gender
+from pet
+where species = 'dog'
+and gender = 'f';
+   
+select name, species
+from pet
+where species = 'bird'
+or species = 'snake';
+    
+select name, birth
+from pet
+order by birth asc;
+
+select name, birth
+from pet
+order by birth desc;
+
+select name, birth, death
+from pet
+where death is not null; # null: IS NULL or IS NOT NULL 만 가능
+
+select name
+from pet
+where name like 'b%';
+
+select name
+from pet
+where name like '%fy';
+
+select name
+from pet
+where name like '%w%';
+
+select name
+from pet
+where name like '____';
+
+select name
+from pet
+where name like 'b___';
+
+select count(*)
+from pet;

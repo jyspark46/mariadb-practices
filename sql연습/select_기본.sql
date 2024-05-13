@@ -105,7 +105,7 @@ where gender = "M"
 order by hire_date asc;
 
 -- 예제4: 직원의 사번, 월급을 사번(asc), 월급(desc) 순으로 출력
--- 같은 사번이면 월급순으로 출력하라는 뜻 !
+-- 같은 사번이면 월급순으로 출력하라는 뜻!
 select emp_no, salary
 from salaries
 order by emp_no asc, salary desc;
