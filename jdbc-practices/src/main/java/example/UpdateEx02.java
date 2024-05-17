@@ -2,23 +2,27 @@ package example;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class InserEx01 {
-	
+public class UpdateEx02 {
+
 	public static void main(String[] args) {
 		
-		System.out.println(insert("기획1팀"));
-		System.out.println(insert("기획2팀"));
+		DeptVo vo = new DeptVo();
+		vo.setNo(1L);
+		vo.setName("경영지원2");
 		
+		boolean result = update(vo);
+		System.out.println(result ? "성공" : "실패");
 	}
 	
-	public static boolean insert(String deptName) {
+	public static boolean update(DeptVo vo) {
 		
 		boolean result = false;
 		Connection conn = null;
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		
 		try {
 			// 1. JDBC Driver 로딩
@@ -28,14 +32,18 @@ public class InserEx01 {
 			String url = "jdbc:mariadb://192.168.0.206:3306/webdb?charset=utf8";
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
 			
-			// 3. Statement 생성하기
-			stmt = conn.createStatement();
+			// 3. Statement 준비하기
+			String sql = "update dept set name = ? where no = ?";
+			pstmt = conn.prepareStatement(sql);
 			
-			// 4. SQL 실행하기
-			String sql = "insert into dept values(null, '" + deptName + "')";
-			int count = stmt.executeUpdate(sql);
+			// 4. parameter binding
+			pstmt.setString(1, vo.getName());
+			pstmt.setLong(2, vo.getNo());
 			
-			// 5. 결과 처리하기
+			// 5. SQL 실행하기
+			int count = pstmt.executeUpdate();
+			
+			// 6. 결과 처리하기
 			result = count == 1;
 			
 		} catch (ClassNotFoundException e) {
@@ -44,8 +52,8 @@ public class InserEx01 {
 			System.out.println("error: " + e);
 		} finally {
 			try {
-				if(stmt != null) {
-					stmt.close();
+				if(pstmt != null) {
+					pstmt.close();
 				}
 				if(conn != null) {
 					conn.close();
@@ -55,6 +63,6 @@ public class InserEx01 {
 			}
 		}
 		
-		return result;
+		return result;	
 	}
 }
