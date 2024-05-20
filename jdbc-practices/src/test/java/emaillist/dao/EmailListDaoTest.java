@@ -17,7 +17,6 @@ import emaillist.vo.EmaillistVo;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 
 public class EmailListDaoTest {
-	
 	private static int count = 0;
 	
 	@BeforeAll
