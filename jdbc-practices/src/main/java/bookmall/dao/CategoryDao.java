@@ -54,15 +54,15 @@ public class CategoryDao {
 		int result = 0;
 		
 		try (
-				Connection conn = getConnection();
-				PreparedStatement pstmt = conn.prepareStatement("delete from category where no = ?");
-			) {
-				// 4. parameter binding
-				pstmt.setLong(1, no);
-				result = pstmt.executeUpdate();
-			} catch (SQLException e) {
-				System.out.println("error: " + e);
-			}
+			Connection conn = getConnection();
+			PreparedStatement pstmt = conn.prepareStatement("delete from category where no = ?");
+		) {
+			// 4. parameter binding
+			pstmt.setLong(1, no);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("error: " + e);
+		}
 		
 		return result;
 	}

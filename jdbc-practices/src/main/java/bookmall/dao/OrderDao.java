@@ -85,15 +85,15 @@ public class OrderDao {
 		int result = 0;
 		
 		try (
-				Connection conn = getConnection();
-				PreparedStatement pstmt = conn.prepareStatement("delete from orders_book where order_no = ?");
-			) {
-				// 4. parameter binding
-				pstmt.setLong(1, no);
-				result = pstmt.executeUpdate();
-			} catch (SQLException e) {
-				System.out.println("error: " + e);
-			}
+			Connection conn = getConnection();
+			PreparedStatement pstmt = conn.prepareStatement("delete from orders_book where order_no = ?");
+		) {
+			// 4. parameter binding
+			pstmt.setLong(1, no);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("error: " + e);
+		}
 		
 		return result;
 	}
@@ -102,15 +102,15 @@ public class OrderDao {
 		int result = 0;
 		
 		try (
-				Connection conn = getConnection();
-				PreparedStatement pstmt = conn.prepareStatement("delete from orders where no = ?");
-			) {
-				// 4. parameter binding
-				pstmt.setLong(1, no);
-				result = pstmt.executeUpdate();
-			} catch (SQLException e) {
-				System.out.println("error: " + e);
-			}
+			Connection conn = getConnection();
+			PreparedStatement pstmt = conn.prepareStatement("delete from orders where no = ?");
+		) {
+			// 4. parameter binding
+			pstmt.setLong(1, no);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("error: " + e);
+		}
 		
 		return result;
 	}

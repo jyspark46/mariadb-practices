@@ -56,16 +56,16 @@ public class CartDao {
 		int result = 0;
 		
 		try (
-				Connection conn = getConnection();
-				PreparedStatement pstmt = conn.prepareStatement("delete from cart where user_no = ? and book_no = ?");
-			) {
-				// 4. parameter binding
-				pstmt.setLong(1, userNo);
-				pstmt.setLong(2, bookNo);
-				result = pstmt.executeUpdate();
-			} catch (SQLException e) {
-				System.out.println("error: " + e);
-			}
+			Connection conn = getConnection();
+			PreparedStatement pstmt = conn.prepareStatement("delete from cart where user_no = ? and book_no = ?");
+		) {
+			// 4. parameter binding
+			pstmt.setLong(1, userNo);
+			pstmt.setLong(2, bookNo);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("error: " + e);
+		}
 		
 		return result;
 	}
