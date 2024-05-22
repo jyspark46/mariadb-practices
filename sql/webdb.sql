@@ -9,3 +9,8 @@ update dept set name = '시스템개발' where no = 2;
 
 -- select
 select * from dept;
+
+
+
+select * from emaillist;
+delete from emaillist where first_name = 'ㅇ';
