@@ -148,7 +148,7 @@ public class EmaillistDao {
 				EmaillistVo vo = new EmaillistVo();
 				vo.setNo(no);
 				vo.setFirstName(firstName);
-				vo.setFirstName(lastName);
+				vo.setLastName(lastName);
 				vo.setEmail(email);
 				
 				result.add(vo);
